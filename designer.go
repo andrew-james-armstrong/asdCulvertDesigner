@@ -3,8 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/andrew-james-armstrong/asd/designers"
-	"github.com/andrew-james-armstrong/asd/utils"
+	"github.com/andrew-james-armstrong/asdCulvertDesigner/designers"
 	"log"
 	"net/http"
 	"os"
