@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml-stylesheet type="text/xsl" href="./assets/calculationReport.xsl"?>
+
+{{define "PageTitle"}}<title>{{.}}</title>{{end}}
+{{define "PageMeta"}}<head>{{template "PageTitle" .}}{{template "Style"}}</head>{{end}}
+{{define "Heading"}}<h1 class="Title">{{.}}</h1>{{end}}
+{{define "SubHeading"}}<h2 class="Title">{{.}}</h2>{{end}}
+{{define "Paragraph"}}<p class="userNote">{{.}}</p>{{end}}
+{{define "Warning"}}<p class="Warning">{{.}}</p>{{end}}
+{{define "Style"}}<link rel="stylesheet" type="text/css" href="/assets/style.css">{{end}}
+{{define "link"}}<p class="Detail"><a href="{{.}}">Do Design</a></p>{{end}}
+{{define "logo"}}<img src="/assets/asd_logo.svg" width="96px" height="96px">{{end}}
+{{define "Banner"}}<div><table bgcolor="#eeffee" width="100%"><tr><td><h1>{{.}}</h1></td><td width="100px" align="left" valign="top">{{template "logo"}}</td></tr></table><br/>{{template "Menu"}}</div>{{end}}
+{{define "Menu"}}<a href="./index">Menu</a>{{end}}
+{{define "input"}}<input maxLength=256 size=20 name={{.Field}} value={{.Value}}>{{end}}
+{{define "head"}}<H1>{{.}}</H1>{{end}}
+{{define "Row"}}<tr><td width="180px">{{.Name}}</td><td width="200px">{{template "input" .}}</td><td width="60px">{{template "Units" .Unit}}</td></tr>{{end}}
+{{define "Units"}}{{template "Symbol" .}}{{end}}
+{{define "Symbol"}}{{.Text}}{{end}}
+{{define "ProjRow"}}<tr><td>{{.Name}}</td><td>{{template "input" .}}</td></tr>{{end}}
+{{define "Form"}}<form action="http://192.168.0.15:9001/designOne" name="calc" method="POST">{{end}}
+{{define "res" }}<Design>{{.}}</Design>{{end}}
+
+
+<calculation>
+	{{template "res"}}
+</calculation>

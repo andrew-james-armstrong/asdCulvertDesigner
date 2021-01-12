@@ -1,0 +1,130 @@
+.HeadRow {  font-family: Tahoma; font-size: 10pt; font-style: normal; font-weight: bold; color: #000066}
+.Title {  font-family: Tahoma; font-size: 16pt; font-style: normal; line-height: 20pt; font-weight: bold; color: #990033}
+.SubTitle {  font-family: Tahoma; font-size: 10pt; font-style: normal; line-height: 16pt; font-weight: bold; color: #000000}
+.data {  font-family: Tahoma; font-size: 10pt; font-style: normal; line-height: 11pt; font-weight: lighter; color: #990033}
+.userNote {  font-family: Tahoma; font-size: 8pt; font-style: italic; line-height: 9pt; font-weight: lighter; color: #FF0000}
+h1,h2,h3,h4,h5,h6 {
+	font-family:Tahoma;
+	font-style: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+    color: Teal;
+    background: none;
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.17em;
+    border-bottom: 1px solid #aaaaaa;
+}
+h1 {
+	font-size: 16pt;
+}
+h2 {
+	font-size: 12pt;
+}
+h3 {
+	font-size: 10pt;
+}
+h4 {
+	font-size: 8pt;
+}
+h5 {
+	font-size: 7pt;
+}
+h6 {
+	font-size: 6pt;
+}
+p {
+	font-family:Tahoma, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+    color: Black;
+    background: none;
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.17em;
+}
+
+ul {
+	font-family:Tahoma, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+    color: Black;
+    background: none;
+    margin: 0;
+    padding-top: 0.5em;
+    padding-bottom: 0.17em;
+}
+
+hr {
+    height: 1px;
+    color: #aaaaaa;
+    background-color: #aaaaaa;
+    border: 0;
+    margin: 0.2em 0 0.2em 0;
+}
+.colheading {color:#ffd000; font-style:bold;}
+.index {color:#402030; font-style:bold; font-size:8pt; font-family:Tahoma}
+.project {background-color:#705090; color:#ffeedd;  font-size:10pt; font-family:Tahoma}
+.pName {background-color:#505050; color:#a08020; font-size:8pt; font-family:Tahoma}
+.detail {color:#000000; font-size:8pt; font-family:Tahoma}
+.state {color:#000000; font-size:7pt; font-family:Tahoma}
+.per {color:#000080; font-size:8pt; font-style:italic; font-family:Tahoma}
+.work {color:#008080; font-size:8pt; font-family:Tahoma}
+.flash {color:#ff0000; font-size:8pt; font-family:Tahoma}
+.copy {color:#008080; font-size:6pt; font-style: Italic; font-family:Tahoma}
+body {  font-family: Verdana, Arial, Helvetica, sans-serif; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; font-size: x-small;}
+a:hover { color: #CC0000 }
+a:active { color: #000066 }
+td { font-family: Verdana, Arial, Helvetica, sans-serif; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; font-size: x-small ; border-color: #999900 black; border-top-width: thin; border-bottom-width: thin}
+.notes {  color: #999999}
+th {  font-family: Verdana, Arial, Helvetica, sans-serif; font-size: x-small; font-weight: bold; color: #CC0000; background-color: #CCCCCC; text-align: left}
+.boldtitles { color:#000000; font-size:10pt; font-family:Tahoma; font-weight: bold}
+.ProjectTitles { color:#ffff00; font-size:10pt; font-family:Tahoma; font-weight: bold}
+.ProjectHeadings { color:#000000; font-size:8pt; font-family:Tahoma; font-weight: bold}
+.jobtitle { font-family: Arial, Helvetica, sans-serif; font-size: small; font-weight: bold; color: #006600 }
+.smalltext {  font-size: 8pt}
+.redText {  font-size: 8pt; color:#ff0000}
+.amberText{ font-size: 8pt; color:#e0c000}
+.greenText {  font-size: 8pt; color:#00a000}
+.blueText {  font-size: 8pt; color:#0000a0}
+.blackText {  font-size: 8pt; color:#000000}
+.whiteText {  font-size: 8pt; color:#ffffff}
+.arrowlist {list-style-position: inside;list-style-image:  url(file:///C|/eclipse/workspace/ServletTest/build/xmlfiles/Arrow.gif);list-style-type: square; line-height: 2}
+.Warning { font-family: Verdana, Arial, Helvetica, sans-serif; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 10px; font-size: x-small; background-color: #FFF9D9 ; font-style: normal; font-weight: bold; text-transform: none; color: #FF0000}
+.smalltextItal { color:#000080; font-size: 8pt ; font-style: italic}
+.smalldetail {color:#000000; font-size:6pt; font-family:Tahoma}
+news {  font-size: 8pt; color: #FF9933}
+.ISTitle {font-weight: bold;font-size: x-small;}
+.IStext {font-size: x-small;}
+.ISAuthor {font-size: x-small;font-style: italic;color: #666666}
+.tableTopleft {
+	border-top: 1px solid #0000CC;
+	border-right: 1px none #0000CC;
+	border-bottom: 1px none #0000CC;
+	border-left: 1px solid #0000CC;
+	color:#000000;
+	font-size:8pt;
+	font-family:Tahoma
+}
+.tableBottomright {
+	border-top: 1px none #0000CC;
+	border-right: 1px solid #0000CC;
+	border-bottom: 1px solid #0000CC;
+	border-left: 1px none #0000CC;
+	color:#000000;
+	font-size:8pt;
+	font-family:Tahoma
+}
+.tableAll {
+	border-top: 1px solid #b0c0b0;
+	border-right: 1px solid #b0c0b0;
+	border-bottom: 1px solid #b0c0b0;
+	border-left: 1px solid #b0c0b0;
+}

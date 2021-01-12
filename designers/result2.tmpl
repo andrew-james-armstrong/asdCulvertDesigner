@@ -1,0 +1,67 @@
+{{define "PageTitle"}}<title>{{.}}</title>{{end}}
+{{define "PageMeta"}}<head>{{template "PageTitle" .}}{{template "Style"}}</head>{{end}}
+{{define "Heading"}}<h1 class="Title">{{.}}</h1>{{end}}
+{{define "SubHeading"}}<h2 class="Title">{{.}}</h2>{{end}}
+{{define "Paragraph"}}<p class="userNote">{{.}}</p>{{end}}
+{{define "Warning"}}<p class="Warning">{{.}}</p>{{end}}
+{{define "Style"}}<link rel="stylesheet" type="text/css" href="/assets/style.css">{{end}}
+{{define "link"}}<p class="Detail"><a href="{{.}}">Do Design</a></p>{{end}}
+{{define "logo"}}<img src="/assets/asd_logo.svg" width="96px" height="96px">{{end}}
+{{define "Banner"}}<div><table bgcolor="#eeffee" width="100%"><tr><td><h1>{{.}}</h1></td><td width="100px" align="left" valign="top">{{template "logo"}}</td></tr></table><br/>{{template "Menu"}}</div>{{end}}
+{{define "Menu"}}<a href="./index">Menu</a>{{end}}
+{{define "input"}}<input maxLength=256 size=20 name={{.Field}} value={{.Value}}>{{end}}
+{{define "head"}}<H1>{{.}}</H1>{{end}}
+{{define "Row"}}<tr><td width="180px">{{.Name}}</td><td width="200px">{{template "input" .}}</td><td width="60px">{{template "Units" .Unit}}</td></tr>{{end}}
+{{define "Units"}}{{template "Symbol" .}}{{end}}
+{{define "Symbol"}}{{.Text}}{{end}}
+{{define "ProjRow"}}<tr><td>{{.Name}}</td><td>{{template "input" .}}</td></tr>{{end}}
+{{define "Form"}}<form action="http://192.168.0.15:9001/designTwo" name="calc" method="POST">{{end}}
+	
+<!DOCTYPE html>
+<html>
+{{template "PageMeta" "Buried Box Designer V0.1"}}
+<body>
+{{template "Banner"  "Two cell box culvert - Design data collection"}}
+<div>
+{{template "Form"}}
+{{template "SubHeading" "General project data"}}
+<table width="600px" bgcolor="a0a0a0">
+{{range .Project}}{{template "ProjRow" .}}{{end}}
+</table>
+</div>
+<div>
+{{template "SubHeading" "Section Geometry"}}
+{{template "Paragraph" "All dimensions should be entered in mm but will be converted to metres for analysis."}}
+<table width="600px" bgcolor="a0a0a0">
+{{range .Geom}}{{template "Row" .}}{{end}}
+</table>
+</div>
+<div>
+<img src="/assets/2_cell_box_section.svg" width="800px" height="600px">
+<div></td>
+<div>
+{{template "SubHeading" "Material Properties"}}
+{{template "Paragraph" "All material properties are assumed to be in SI Units but results may be converted to other systems."}}
+<table width="600px" bgcolor="a0a0a0">
+{{range .Property}}{{template "Row" .}}{{end}}
+</table>
+</div>
+<div>
+{{template "SubHeading" "Imposed Loading"}}
+{{template "Paragraph" "Loads are expressed as UDLs assuming that point loads and vehicle loads are laterally spread through the cover material."}}
+<table width="600px" bgcolor="a0a0a0">
+{{range .Loads}}{{template "Row" .}}{{end}}
+</table>
+</div>
+<div>
+{{template "SubHeading" "Design Factors"}}
+{{template "Paragraph" "Load factors used to define the forces on the structure in accordance with Eurocode EN1992."}}
+<table width="600px" bgcolor="a0a0a0">
+{{range .Factors}}{{template "Row" .}}{{end}}
+</table>
+</div>
+<input type=submit value="Structural Design" name=result>
+<input type=submit value="Create BIM Model" name=result>
+</form>
+</body>
+</html>
