@@ -1,7 +1,6 @@
 package designers
 
 import (
-	"github.com/andrew-james-armstrong/asdCulvertDesigner"
 	"log"
 	"math"
 	"net/http"
