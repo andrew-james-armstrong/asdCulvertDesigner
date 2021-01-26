@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<!DOCTYPE document
+[
+<!ENTITY copy "&#169;">
+]>
+<document>
+   <watermark>&copy; A Armstrong</watermark>
+   <copyright>&copy; Copyright 2020, Andrew Armstrong - Engineer. All Rights Reserved.</copyright>
+   <PageRef>Asd - Calculation Sheet</PageRef>
+   <DeveloperName>Developed by Andrew Armstrong (e-mail:- Andrew22Armstrong@gmail.com)</DeveloperName>
+</document>

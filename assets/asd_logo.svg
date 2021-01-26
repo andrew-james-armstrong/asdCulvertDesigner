@@ -1,0 +1,18 @@
+<svg width="960" height="960" xmlns="http://www.w3.org/2000/svg">
+ <style>text {
+      font: 960px bold serif; stroke-linejoin: round;
+      text-anchor: left; fill: cyan; stroke: Blue;
+    }</style>
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="962" height="962" id="canvas_background" fill="none"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text x="110.00293" y="834.00085" stroke-width=" 12px" id="svg_1" font-family="'League Gothic', sans-serif">sd</text>
+  <path stroke="#0000ff" fill="#a0a0ff" stroke-width="12px" stroke-linejoin="round" stroke-linecap="undefined" d="m18,842l346.5,-818l346.5,818l-72.1875,0l-137.15625,-332.3125l-274.3125,0l-137.15625,332.3125l-72.1875,0z" id="logo"/>
+  <path fill="#ffffff" stroke-width="12px" stroke-linejoin="round" stroke-linecap="undefined" d="m245.00002,457l120.49998,-284l120.5,284l-240.99998,0z" id="logo2" stroke="#0000ff"/>
+  <line fill="none" stroke="null" stroke-width=" 12px" stroke-opacity="null" fill-opacity="null" x1="548.00045" y1="630.00066" x2="281.99939" y2="265.9992" id="svg_6" stroke-linejoin="null" stroke-linecap="null"/>
+ </g>
+</svg>

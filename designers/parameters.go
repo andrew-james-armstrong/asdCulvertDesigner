@@ -9,6 +9,10 @@ import (
 )
 
 const DESIGNER_VERSION = "v0.0.1"
+const DESIGNER_VERSION_DATE = "01 January 2021"
+const DESIGNER_NAME = "Andy Armstrong"
+const DESIGNER_RUN_TIME = "TBA"
+const DEGTORAD = math.Pi / 180
 
 var projectName, StructureName, structureRef, structureNumber string
 var IP_Ground_level, IP_Invert_level, structure_longitudinal_grade, structure_skew, upstream_length, downstream_length float64
@@ -63,10 +67,21 @@ func (self Point) ToXML(n int) string {
 }
 
 type ReinforcementLayer struct {
+	Name        string
 	BarSpacing  float64
 	SmallBarDia float64
 	LargeBarDia float64
 	LayerCentre float64
+}
+
+func ka(phi float64) float64 {
+	return math.Tan(45*DEGTORAD-phi*DEGTORAD/2) * math.Tan(45*DEGTORAD-phi*DEGTORAD/2)
+}
+func kp(phi float64) float64 {
+	return math.Tan(math.Pi/4+phi*math.Pi/360) * math.Tan(math.Pi/4+phi*math.Pi/360)
+}
+func k0(phi float64) float64 {
+	return (1 - math.Sin(phi*math.Pi/180))
 }
 
 func (self ReinforcementLayer) NextBarSizeIncrementUpwards() ReinforcementLayer {
@@ -84,7 +99,7 @@ func (self ReinforcementLayer) NextBarSizeIncrementUpwards() ReinforcementLayer 
 }
 
 func (self ReinforcementLayer) ToXML() string {
-	return fmt.Sprintf("<Layer<LargeBar>%v</LargeBar><SmallBar>%v</SmallBar><Spacing>%v</Spacing><Level>%v</Level></Layer>", self.LargeBarDia, self.SmallBarDia, self.BarSpacing, self.LayerCentre)
+	return fmt.Sprintf("<Layer><Name>%v</Name><LargeBar>%v</LargeBar><SmallBar>%v</SmallBar><Spacing>%v</Spacing><Level>%v</Level></Layer>", self.Name, self.LargeBarDia, self.SmallBarDia, self.BarSpacing, self.LayerCentre)
 }
 
 type RectangularConcreteSection struct {
@@ -110,7 +125,7 @@ func (self RectangularConcreteSection) Inertia() float64 {
 }
 
 func (self RectangularConcreteSection) ToXML() string {
-	return fmt.Sprintf("<Rectangular_concrete_section><breadth>%f</Breadth><Height>%f</Height><ConcreteGrade>%f</ConcreteGrade><ReinforcementGrade>%f</ReinforcementGrade><ShearLinkAllowance>%f</ShearLinkAllowance><MinimumCover>%f</MinimumCover><CoverTolerance>%f</CoverTolerance><ReinforcementLayer>%s</ReinforcementLayer><ReinforcementLayer>%s</ReinforcementLayer><ReinforcementLayer>%s</ReinforcementLayer><ReinforcementLayer>%s</ReinforcementLayer></Rectangular_concrete_section>", self.Breadth, self.Height, self.ConcreteGrade, self.ReinforcementGrade, self.ShearLinkAllowance, self.MinCover, self.CoverTolerance, self.ReinfB1.ToXML(), self.ReinfB2.ToXML(), self.ReinfT1.ToXML(), self.ReinfT2.ToXML())
+	return fmt.Sprintf("<Rectangular_concrete_section><Breadth>%f</Breadth><Height>%f</Height><ConcreteGrade>%f</ConcreteGrade><ReinforcementGrade>%f</ReinforcementGrade><ShearLinkAllowance>%f</ShearLinkAllowance><MinimumCover>%f</MinimumCover><CoverTolerance>%f</CoverTolerance><ReinforcementLayers>%s%s%s%s</ReinforcementLayers></Rectangular_concrete_section>", self.Breadth, self.Height, self.ConcreteGrade, self.ReinforcementGrade, self.ShearLinkAllowance, self.MinCover, self.CoverTolerance, self.ReinfB1.ToXML(), self.ReinfB2.ToXML(), self.ReinfT1.ToXML(), self.ReinfT2.ToXML())
 }
 
 type Culvert struct {
@@ -122,6 +137,7 @@ type Culvert struct {
 	RightLength       float64
 	LeftInvertLevel   float64
 	RightInvertLevel  float64
+	RoofCover         float64
 }
 
 type CulvertSection struct {
@@ -143,34 +159,35 @@ type CulvertSection struct {
 func (self CulvertSection) GenerateOneCellNodes() []Point {
 	// Build node list
 	// Note this is a closed section so node 24 is the same point as node 0
-	nodes := make([]Point, 23, 23)
+	nodes := make([]Point, 24, 24)
 
 	// First set up some convenient intermediate values
 	mid_wall := (self.Height - self.BaseThickness - self.RoofThickness - self.TopHaunchHeight - self.BottomHaunchHeight) / 2
 	mid_roof := self.Width/2 - self.TopHaunchWidth
 	mid_base := self.Width/2 - self.BottomHaunchWidth
+	println(self.BottomHaunchHeight)
 
 	// Do a walk around the perimeter to generate each node
 
 	nodes[0] = Point{0, 0, 0}
-	nodes[1] = nodes[0].Add(Point{0, self.BaseThickness / 2, 0})
-	nodes[2] = nodes[1].Add(Point{0, self.BottomHaunchHeight, 0})
-	nodes[3] = nodes[2].Add(Point{0, mid_wall, 0})
-	nodes[4] = nodes[3].Add(Point{0, mid_wall, 0})
-	nodes[5] = nodes[4].Add(Point{0, self.TopHaunchHeight, 0})
-	nodes[6] = nodes[5].Add(Point{0, self.RoofThickness / 2, 0})
+	nodes[1] = nodes[0].Add(Point{0, 0, self.BaseThickness / 2})
+	nodes[2] = nodes[1].Add(Point{0, 0, self.BottomHaunchHeight})
+	nodes[3] = nodes[2].Add(Point{0, 0, mid_wall})
+	nodes[4] = nodes[3].Add(Point{0, 0, mid_wall})
+	nodes[5] = nodes[4].Add(Point{0, 0, self.TopHaunchHeight})
+	nodes[6] = nodes[5].Add(Point{0, 0, self.RoofThickness / 2})
 	nodes[7] = nodes[6].Add(Point{self.WallThickness / 2, 0, 0})
 	nodes[8] = nodes[7].Add(Point{self.TopHaunchWidth, 0, 0})
 	nodes[9] = nodes[8].Add(Point{mid_roof, 0, 0})
 	nodes[10] = nodes[9].Add(Point{mid_roof, 0, 0})
 	nodes[11] = nodes[10].Add(Point{self.TopHaunchWidth, 0, 0})
 	nodes[12] = nodes[11].Add(Point{self.WallThickness / 2, 0, 0})
-	nodes[13] = nodes[13].Subtract(Point{0, self.RoofThickness / 2, 0})
-	nodes[14] = nodes[14].Subtract(Point{0, self.TopHaunchHeight, 0})
-	nodes[15] = nodes[14].Subtract(Point{0, mid_wall, 0})
-	nodes[16] = nodes[15].Subtract(Point{0, mid_wall, 0})
-	nodes[17] = nodes[16].Subtract(Point{0, self.BottomHaunchHeight, 0})
-	nodes[18] = nodes[17].Subtract(Point{0, self.BaseThickness / 2, 0})
+	nodes[13] = nodes[12].Subtract(Point{0, 0, self.RoofThickness / 2})
+	nodes[14] = nodes[13].Subtract(Point{0, 0, self.TopHaunchHeight})
+	nodes[15] = nodes[14].Subtract(Point{0, 0, mid_wall})
+	nodes[16] = nodes[15].Subtract(Point{0, 0, mid_wall})
+	nodes[17] = nodes[16].Subtract(Point{0, 0, self.BottomHaunchHeight})
+	nodes[18] = nodes[17].Subtract(Point{0, 0, self.BaseThickness / 2})
 	nodes[19] = nodes[18].Subtract(Point{self.WallThickness / 2, 0, 0})
 	nodes[20] = nodes[19].Subtract(Point{self.BottomHaunchWidth, 0, 0})
 	nodes[21] = nodes[20].Subtract(Point{mid_base, 0, 0})
@@ -192,24 +209,24 @@ func (self CulvertSection) GenerateTwoCellNodes() []Point {
 	// Do a walk around the perimeter to generate each node
 
 	nodes[0] = Point{0, 0, 0}
-	nodes[1] = nodes[0].Add(Point{0, self.BaseThickness / 2, 0})
-	nodes[2] = nodes[1].Add(Point{0, self.BottomHaunchHeight, 0})
-	nodes[3] = nodes[2].Add(Point{0, mid_wall, 0})
-	nodes[4] = nodes[3].Add(Point{0, mid_wall, 0})
-	nodes[5] = nodes[4].Add(Point{0, self.TopHaunchHeight, 0})
-	nodes[6] = nodes[5].Add(Point{0, self.RoofThickness / 2, 0})
+	nodes[1] = nodes[0].Add(Point{0, 0, self.BaseThickness / 2})
+	nodes[2] = nodes[1].Add(Point{0, 0, self.BottomHaunchHeight})
+	nodes[3] = nodes[2].Add(Point{0, 0, mid_wall})
+	nodes[4] = nodes[3].Add(Point{0, 0, mid_wall})
+	nodes[5] = nodes[4].Add(Point{0, 0, self.TopHaunchHeight})
+	nodes[6] = nodes[5].Add(Point{0, 0, self.RoofThickness / 2})
 	nodes[7] = nodes[6].Add(Point{self.WallThickness / 2, 0, 0})
 	nodes[8] = nodes[7].Add(Point{self.TopHaunchWidth, 0, 0})
 	nodes[9] = nodes[8].Add(Point{mid_roof, 0, 0})
 	nodes[10] = nodes[9].Add(Point{mid_roof, 0, 0})
 	nodes[11] = nodes[10].Add(Point{self.TopHaunchWidth, 0, 0})
 	nodes[12] = nodes[11].Add(Point{self.WallThickness / 2, 0, 0})
-	nodes[13] = nodes[13].Subtract(Point{0, self.RoofThickness / 2, 0})
-	nodes[14] = nodes[14].Subtract(Point{0, self.TopHaunchHeight, 0})
-	nodes[15] = nodes[14].Subtract(Point{0, mid_wall, 0})
-	nodes[16] = nodes[15].Subtract(Point{0, mid_wall, 0})
-	nodes[17] = nodes[16].Subtract(Point{0, self.BottomHaunchHeight, 0})
-	nodes[18] = nodes[17].Subtract(Point{0, self.BaseThickness / 2, 0})
+	nodes[13] = nodes[12].Subtract(Point{0, 0, self.RoofThickness / 2})
+	nodes[14] = nodes[13].Subtract(Point{0, 0, self.TopHaunchHeight})
+	nodes[15] = nodes[14].Subtract(Point{0, 0, mid_wall})
+	nodes[16] = nodes[15].Subtract(Point{0, 0, mid_wall})
+	nodes[17] = nodes[16].Subtract(Point{0, 0, self.BottomHaunchHeight})
+	nodes[18] = nodes[17].Subtract(Point{0, 0, self.BaseThickness / 2})
 	nodes[19] = nodes[18].Subtract(Point{self.WallThickness / 2, 0, 0})
 	nodes[20] = nodes[19].Subtract(Point{self.BottomHaunchWidth, 0, 0})
 	nodes[21] = nodes[20].Subtract(Point{mid_base, 0, 0})

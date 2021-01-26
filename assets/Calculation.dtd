@@ -1,0 +1,8 @@
+<!ELEMENT Calculation (Project) >
+<!ELEMENT Project (project_name, structure_name, structure_reference, structure_number) >
+<!ENTITY ptitle 'Armstrong Standard Designs'>
+<!ENTITY title1 'Single Cell Box Culvert Design'>
+<!ENTITY title2 'This is a standard design calculation for the main barrel of a very simple box culvert structure such as a stream crossing under a highway embankment. The structural design calculation is based on Eurocodes with the UK National Appendix. Versions based on other codes are in development.'>
+<!ENTITY nbsp '&#032;'>
+<!ENTITY copy '#0169'>
+<!ENTITY Inp 'Wibble'>

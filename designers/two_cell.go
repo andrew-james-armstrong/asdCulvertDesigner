@@ -1,6 +1,7 @@
 package designers
 
 import (
+	"github.com/andrew-james-armstrong/asdCulvertDesigner/utils"
 	"log"
 	"math"
 	"net/http"
@@ -9,7 +10,7 @@ import (
 func two_cell(req *http.Request) string {
 	var structure Culvert
 	var section CulvertSection
-	var defaultReinforcementLayer = ReinforcementLayer{0.15, 0.0, 0.0, 0.0}
+	var defaultReinforcementLayer = ReinforcementLayer{"T1", 0.15, 0.0, 0.0, 0.0}
 	var structureBackfill GroundProperties
 
 	project := "<project_name>" + req.FormValue("Pname") + "</project_name><structure_name>" + req.FormValue("Sname") + "</structure_name><structure_reference>" + req.FormValue("Sref") + "</structure_reference><structure_number>" + req.FormValue("SNo") + "</structure_number>"
@@ -22,6 +23,7 @@ func two_cell(req *http.Request) string {
 		extract(req, "structure_skew"),
 		extract(req, "upstream_length"),
 		extract(req, "downstream_length"),
+		0, //To be added later
 		0, //To be added later
 		0, //To be added later
 	}

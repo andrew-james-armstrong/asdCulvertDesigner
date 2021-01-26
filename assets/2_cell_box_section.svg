@@ -1,0 +1,39 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#80bf78" id="canvas_background" height="600" width="1200" y="0" x="0"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="#80bf78" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Structure</title>
+  <rect id="Outline" height="400" width="660" x="75" y="100" stroke-width="3" stroke="#000" fill="#aaa"/>
+  <path id="Cell1Top" d="m120, 235l0,-55l20,-20l230,0l20,20l0,55l-270,0z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#FFF"></path>
+  <path id="Cell1Mid" d="m120, 235l270,0l0,150l-270,0l0,-150z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#8080ff"></path>
+  <path id="Cell1Bottom" d="m120, 385l270,0l0,40l-20, 20l-230,0l-20,-20l0,-40z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#804040"></path>
+  <path id="Cell2Top" d="m420, 235l0,-55l20,-20l230,0l20,20l0,55l-270,0z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#FFF"></path>
+  <path id="Cell2Mid" d="m420, 235l270,0l0,150l-270,0l0,-150z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#8080ff"></path>
+  <path id="Cell2Bottom" d="m420, 385l270,0l0,40l-20, 20l-230,0l-20,-20l0,-40z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#804040"></path>
+  
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="Free" y="220" x="280" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Freeboard</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="Leftw" y="360" x="260" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Left width</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="Rightw" y="360" x="480" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Right width</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="Leftbed" y="420" x="260" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Left bed depth</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="Rightbed" y="420" x="480" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Right bed depth</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="Height" y="300" x="220" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Height</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="RoofTh" y="140" x="330" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Roof thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="BaseTh" y="480" x="330" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Base thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="WallTh1" y="280" x="130" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Outer</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="WallTh2" y="300" x="130" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">wall</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="WallTh3" y="320" x="130" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="IWallTh1" y="280" x="440" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Inner</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="IWallTh2" y="300" x="440" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">wall</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="IWallTh3" y="320" x="440" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">thickness</text>
+  <path id="Vdim1" d="m250, 160l0,110z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="2" stroke="#000000" fill="#000000"></path>
+  <path id="Vdim2" d="m250, 320l0,130z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="2" stroke="#000000" fill="#000000"></path>
+	  
+ </g>
+</svg>

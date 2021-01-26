@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="./assets/CalculationReport.xsl"?>
+<!DOCTYPE Project  SYSTEM "./assets/calculation.dtd" [
+<!ELEMENT Calculation (#PCDATA)>
+<!ENTITY pagetitle "Single Cell Box Design" >
+<!ENTITY copy SYSTEM "./assets/Asd_Copy.xml">
+]>
+<CalculationReport>
+&Project;
+</CalculationReport>

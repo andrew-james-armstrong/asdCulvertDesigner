@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="960" height="960" viewBox="0 0 960 960">
+
+  <style>
+    text {
+      font: 960px bold serif; stroke-linejoin: round;
+      text-anchor: left; fill: cyan; stroke: Blue;
+    }
+  </style>
+
+  <text x="100" y="940" style="stroke-width: 12px;">sd</text>
+  <text x="0" y="660" style="stroke-width: 12px;">A</text>
+</svg>

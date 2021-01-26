@@ -1,0 +1,11 @@
+<?xml version='1.0'?>
+<!DOCTYPE document
+[
+<!ENTITY copy "&#169;">
+]>
+<document>
+   <watermark>&copy; Arup 2021</watermark>
+   <copyright>&copy; Copyright 2021, Arup Infrastructure. All Rights Reserved.</copyright>
+   <PageRef>Asd - Calculation Report</PageRef>
+   <DeveloperName>Developed by Andy Armstrong (e-mail:- Andrew.Armstrong@Arup.com)</DeveloperName>
+</document>

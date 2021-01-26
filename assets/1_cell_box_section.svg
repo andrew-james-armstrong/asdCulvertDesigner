@@ -1,0 +1,30 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="#80bf78" id="canvas_background" height="600" width="800" y="0" x="0"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="#80bf78" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect id="Outline" height="400" width="500" y="100" x="150" stroke-width="3" stroke="#000" fill="#aaa"/>
+  <path id="Freeboard" d="m200, 235l0,-55l20,-20l360,0l20,20l0,55l-400,0z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#FFF"></path>
+  <path id="Water" d="m200, 235l400,0l0,150l-400,0l0,-150z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#8080ff"></path>
+  <path id="StreamBed" d="m200, 385l400,0l0,40l-20, 20l-360,0l-20,-20l0,-40z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="3" stroke="#000" fill="#804040"></path>
+  
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_2" y="220" x="320" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Freeboard</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_3" y="360" x="350" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Width</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_4" y="300" x="220" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Height</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_5" y="140" x="330" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Roof thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_6" y="480" x="330" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Base thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_7" y="280" x="100" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Wall</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_8" y="320" x="50" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">thickness</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="20" id="svg_3" y="420" x="350" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Stream bed depth</text>
+  <path id="svg_10" d="m250, 160l0,110z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="2" stroke="#000000" fill="#000000"></path>
+  <path id="svg_11" d="m250, 320l0,130z" stroke-linecap="undefined" stroke-linejoin="undefined" stroke-width="2" stroke="#000000" fill="#000000"></path>
+	  
+ </g>
+</svg>
